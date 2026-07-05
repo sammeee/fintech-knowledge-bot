@@ -61,15 +61,18 @@ A production-ready RAG-powered chatbot that answers questions about fintech regu
 
 ## 🗂️ Project Structure
 
+```text
 fintech-knowledge-bot/
 ├── api/
 │   ├── main.py          # FastAPI backend — endpoints and request/response models
 │   ├── rag.py           # RAG pipeline — ingest, embed, retrieve, generate
-│   └── init.py
+│   └── __init__.py
 ├── app.py               # Streamlit frontend — chat UI and API communication
 ├── Dockerfile           # Container definition for FastAPI backend
 ├── requirements.txt     # Python dependencies
 └── README.md
+```
+
 
 ---
 
