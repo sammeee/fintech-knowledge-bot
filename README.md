@@ -23,14 +23,17 @@ A production-ready RAG-powered chatbot that answers questions about fintech regu
 
 ## 🏗️ Architecture
 
+```text
 ┌─────────────────────┐         HTTP          ┌─────────────────────┐
-│   Streamlit Frontend │ ──────────────────── │   FastAPI Backend    │
-│     (Port 8501)      │   POST /ingest        │     (Port 8000)      │
-│                      │   POST /ask           │                      │
-│  - PDF upload UI     │   GET  /health        │  - RAG pipeline      │
-│  - Chat interface    │                       │  - ChromaDB storage  │
-│  - Source citations  │                       │  - LangChain chains  │
+│  Streamlit Frontend │ ────────────────────> │   FastAPI Backend   │
+│     (Port 8501)      │   POST /ingest       │     (Port 8000)     │
+│                      │   POST /ask          │                     │
+│  - PDF upload UI     │   GET  /health       │  - RAG pipeline     │
+│  - Chat interface    │                      │  - ChromaDB storage │
+│  - Source citations  │                      │  - LangChain chains │
 └─────────────────────┘                       └─────────────────────┘
+```
+
 
 ---
 
