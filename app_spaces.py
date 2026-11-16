@@ -9,7 +9,8 @@ from langchain_community.vectorstores import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
-from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
+from langchain_groq import ChatGroq
+
 
 st.set_page_config(
     page_title="Fintech Knowledge Bot",
@@ -38,13 +39,13 @@ def load_embeddings():
 
 @st.cache_resource
 def load_llm():
-    return HuggingFaceEndpoint(
-        repo_id="Qwen/Qwen2.5-7B-Instruct",
-        task="conversational",
-        max_new_tokens=512,
+    return ChatGroq(
+        model="llama-3.3-70b-versatile",
         temperature=0.1,
-        huggingfacehub_api_token=os.environ.get("HF_TOKEN")
+        max_tokens=512,
+        groq_api_key=os.environ.get("GROQ_API_KEY")
     )
+
 
 embeddings = load_embeddings()
 
@@ -106,8 +107,7 @@ def build_chain(vectorstore):
         search_kwargs={"k": 4}
     )
 
-    llm_endpoint = load_llm()
-    llm = ChatHuggingFace(llm=llm_endpoint)
+    llm = load_llm()
 
     prompt = ChatPromptTemplate.from_template("""
 You are a fintech regulatory expert assistant. Answer the question based ONLY 
