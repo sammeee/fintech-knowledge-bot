@@ -11,3 +11,4 @@ pypdf
 requests
 python-multipart
 pydantic
+langchain-groq
