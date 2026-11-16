@@ -71,9 +71,11 @@ fintech-knowledge-bot/
 │   ├── rag.py           # RAG pipeline — ingest, embed, retrieve, generate
 │   └── __init__.py
 ├── app.py               # Streamlit frontend — chat UI and API communication
+├── app_spaces.py        # Hugging Face Spaces deployment entrypoint
 ├── Dockerfile           # Container definition for FastAPI backend
-├── requirements.txt     # Python dependencies
-└── README.md
+├── LICENSE              # Apache 2.0 license
+├── README.md            # Project documentation
+└── requirements.txt     # Python dependencies
 ```
 
 
