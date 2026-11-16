@@ -40,7 +40,7 @@ def load_embeddings():
 @st.cache_resource
 def load_llm():
     return ChatGroq(
-        model="llama-3.3-70b-versatile",
+        model="openai/gpt-oss-20b",
         temperature=0.1,
         max_tokens=512,
         groq_api_key=os.environ.get("GROQ_API_KEY")
